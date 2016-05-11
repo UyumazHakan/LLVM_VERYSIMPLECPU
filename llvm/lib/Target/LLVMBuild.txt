@@ -33,7 +33,6 @@ subdirectories =
  PowerPC
  Sparc
  SystemZ
- VerySimpleCPU
  WebAssembly
  X86
  XCore

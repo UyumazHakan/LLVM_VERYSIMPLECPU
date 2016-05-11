@@ -667,11 +667,11 @@ let Uses = [ICC] in
 let Defs = [ICC], rd = 0 in {
   def CMPrr   : F3_1<2, 0b010100,
                      (outs), (ins IntRegs:$rs1, IntRegs:$rs2),
-                     "CP 16317 $rs1 LT 16317 $rs2 CP 16318 $rs2 LT 16318 $rs1",
+                     "CP 16317 $rs1 CP 16318 $rs2 CPI 16317 16317 CPI 16318 16318  CP 16314 16317 LT 16317 16318 LT 16318 16314",
                      [(SPcmpicc i32:$rs1, i32:$rs2)]>;
   def CMPri   : F3_2<2, 0b010100,
                      (outs), (ins IntRegs:$rs1, simm13Op:$simm13),
-                     "CP 16317 $rs1 LTi 16317 $simm13 CPi 16318 $simm13 LT 16318 $rs1",
+                     "CP 16317 $rs1 CPI 16317 16317 CPi 16318 $simm13 LT 16318 16317 LTi 16317 $simm13",
                      [(SPcmpicc i32:$rs1, (i32 simm13:$simm13))]>;
 }
 

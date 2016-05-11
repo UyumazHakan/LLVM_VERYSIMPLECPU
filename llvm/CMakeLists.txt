@@ -218,7 +218,6 @@ set(LLVM_ALL_TARGETS
   NVPTX
   PowerPC
   Sparc
-#  VerySimpleCPU
   SystemZ
   X86
   XCore
