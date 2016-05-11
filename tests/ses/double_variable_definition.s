@@ -19,23 +19,18 @@ main:                                   ! @main
 3:	CPI 16383 16349
 4:	ADDi 16383 -4
 5:	CPIi 16383 16343
-6:	mov	 43, 16343
-7:	\
-8:	CPI 16383 16349
-9:	ADDi 16383 -8
-10:	CPIi 16383 16343
-11:	mov	 13, 16344
-12:	CPi 16383 0 CP 16343 16383
-13:	\
-14:	CPI 16383 16349
-15:	ADDi 16383 -12
-16:	CPIi 16383 16344
-17:	ret
-18:	restore
+6:	mov	 43, 16344
+7:	CPi 16383 0 CP 16343 16383
+8:	\
+9:	CPI 16383 16349
+10:	ADDi 16383 -8
+11:	CPIi 16383 16344
+12:	ret
+13:	restore
 .Lfunc_end0:
 	.size	main, .Lfunc_end0-main
 	.cfi_endproc
 
 
-	.ident	"Apple LLVM version 7.3.0 (clang-703.0.29)"
+	.ident	"Apple LLVM version 7.3.0 (clang-703.0.31)"
 	.section	".note.GNU-stack"

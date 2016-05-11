@@ -51,7 +51,7 @@ main:                                   ! @main
 33:	CPI 16383 16349
 34:	ADDi 16383 -12
 35:	CP 16343 16383
-36:	CP 16317 16343 LTi 16317 4 CPi 16318 4 LT 16318 16343
+36:	CP 16317 16343 CPI 16317 16317 CPi 16318 4 LT 16318 16317 LTi 16317 4
 37:	ble	 .LBB0_2
 38:	nop
 ! BB#3:
@@ -66,5 +66,5 @@ main:                                   ! @main
 	.cfi_endproc
 
 
-	.ident	"Apple LLVM version 7.3.0 (clang-703.0.29)"
+	.ident	"Apple LLVM version 7.3.0 (clang-703.0.31)"
 	.section	".note.GNU-stack"
