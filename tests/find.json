@@ -1,0 +1,786 @@
+[
+    {
+        "found": [
+            {
+                "1": "1"
+            }
+        ], 
+        "match": [
+            1
+        ], 
+        "name": "tests/douts/bitwise_and.dout", 
+        "no_match": []
+    }, 
+    {
+        "found": [
+            {
+                "4294967282": "1"
+            }
+        ], 
+        "match": [
+            4294967282
+        ], 
+        "name": "tests/douts/bitwise_negation.dout", 
+        "no_match": []
+    }, 
+    {
+        "found": [
+            {
+                "13": "1"
+            }
+        ], 
+        "match": [
+            13
+        ], 
+        "name": "tests/douts/bitwise_or.dout", 
+        "no_match": []
+    }, 
+    {
+        "found": [
+            {
+                "3": "1"
+            }
+        ], 
+        "match": [
+            3
+        ], 
+        "name": "tests/douts/division.dout", 
+        "no_match": []
+    }, 
+    {
+        "found": [
+            {
+                "72": "1"
+            }, 
+            {
+                "43": "1"
+            }
+        ], 
+        "match": [
+            72, 
+            43
+        ], 
+        "name": "tests/douts/double_variable_definition.dout", 
+        "no_match": []
+    }, 
+    {
+        "found": [
+            {
+                "6": "0"
+            }, 
+            {
+                "3": "0"
+            }
+        ], 
+        "match": [
+            6, 
+            3
+        ], 
+        "name": "tests/douts/for_definition_outside.dout", 
+        "no_match": []
+    }, 
+    {
+        "found": [
+            {
+                "6": "0"
+            }
+        ], 
+        "match": [
+            6
+        ], 
+        "name": "tests/douts/for_simple.dout", 
+        "no_match": []
+    }, 
+    {
+        "found": [
+            {
+                "3": "0"
+            }
+        ], 
+        "match": [
+            3
+        ], 
+        "name": "tests/douts/for_with_counter_use.dout", 
+        "no_match": []
+    }, 
+    {
+        "found": [
+            {
+                "1": "0"
+            }
+        ], 
+        "match": [
+            1
+        ], 
+        "name": "tests/douts/for_with_more_than_one_line.dout", 
+        "no_match": []
+    }, 
+    {
+        "found": [
+            {
+                "4": "1"
+            }, 
+            {
+                "4": "1"
+            }, 
+            {
+                "5": "1"
+            }, 
+            {
+                "6": "0"
+            }, 
+            {
+                "9": "1"
+            }
+        ], 
+        "match": [
+            4, 
+            5, 
+            6
+        ], 
+        "name": "tests/douts/if_check_eq.dout", 
+        "no_match": [
+            9
+        ]
+    }, 
+    {
+        "found": [
+            {
+                "5": "1"
+            }, 
+            {
+                "5": "1"
+            }, 
+            {
+                "5": "1"
+            }, 
+            {
+                "10": "0"
+            }
+        ], 
+        "match": [
+            5, 
+            10
+        ], 
+        "name": "tests/douts/if_check_eq2.dout", 
+        "no_match": []
+    }, 
+    {
+        "found": [
+            {
+                "6": "1"
+            }, 
+            {
+                "6": "1"
+            }, 
+            {
+                "11": "0"
+            }
+        ], 
+        "match": [
+            6, 
+            11
+        ], 
+        "name": "tests/douts/if_check_eq3.dout", 
+        "no_match": []
+    }, 
+    {
+        "found": [
+            {
+                "4": "1"
+            }, 
+            {
+                "4": "1"
+            }, 
+            {
+                "5": "1"
+            }, 
+            {
+                "6": "0"
+            }, 
+            {
+                "9": "1"
+            }
+        ], 
+        "match": [
+            4, 
+            5, 
+            6
+        ], 
+        "name": "tests/douts/if_check_ge.dout", 
+        "no_match": [
+            9
+        ]
+    }, 
+    {
+        "found": [
+            {
+                "5": "1"
+            }, 
+            {
+                "5": "1"
+            }, 
+            {
+                "5": "1"
+            }, 
+            {
+                "10": "0"
+            }, 
+            {
+                "6": "1"
+            }
+        ], 
+        "match": [
+            5, 
+            10
+        ], 
+        "name": "tests/douts/if_check_ge2.dout", 
+        "no_match": [
+            6
+        ]
+    }, 
+    {
+        "found": [
+            {
+                "5": "1"
+            }, 
+            {
+                "6": "1"
+            }, 
+            {
+                "6": "1"
+            }, 
+            {
+                "11": "0"
+            }
+        ], 
+        "match": [
+            5, 
+            6, 
+            11
+        ], 
+        "name": "tests/douts/if_check_ge3.dout", 
+        "no_match": []
+    }, 
+    {
+        "found": [
+            {
+                "4": "1"
+            }, 
+            {
+                "4": "1"
+            }, 
+            {
+                "5": "1"
+            }, 
+            {
+                "6": "0"
+            }, 
+            {
+                "9": "1"
+            }
+        ], 
+        "match": [
+            4, 
+            5, 
+            6
+        ], 
+        "name": "tests/douts/if_check_gt.dout", 
+        "no_match": [
+            9
+        ]
+    }, 
+    {
+        "found": [
+            {
+                "5": "1"
+            }, 
+            {
+                "5": "1"
+            }, 
+            {
+                "5": "1"
+            }, 
+            {
+                "6": "0"
+            }, 
+            {
+                "10": "1"
+            }
+        ], 
+        "match": [
+            5, 
+            6
+        ], 
+        "name": "tests/douts/if_check_gt2.dout", 
+        "no_match": [
+            10
+        ]
+    }, 
+    {
+        "found": [
+            {
+                "5": "1"
+            }, 
+            {
+                "6": "1"
+            }, 
+            {
+                "6": "1"
+            }, 
+            {
+                "11": "1"
+            }
+        ], 
+        "match": [
+            5, 
+            6
+        ], 
+        "name": "tests/douts/if_check_gt3.dout", 
+        "no_match": [
+            11
+        ]
+    }, 
+    {
+        "found": [
+            {
+                "4": "1"
+            }, 
+            {
+                "4": "1"
+            }, 
+            {
+                "5": "1"
+            }, 
+            {
+                "9": "0"
+            }
+        ], 
+        "match": [
+            4, 
+            5, 
+            9
+        ], 
+        "name": "tests/douts/if_check_le.dout", 
+        "no_match": []
+    }, 
+    {
+        "found": [
+            {
+                "4": "0"
+            }, 
+            {
+                "5": "1"
+            }, 
+            {
+                "5": "1"
+            }, 
+            {
+                "5": "1"
+            }, 
+            {
+                "9": "0"
+            }
+        ], 
+        "match": [
+            4, 
+            5, 
+            9
+        ], 
+        "name": "tests/douts/if_check_le2.dout", 
+        "no_match": []
+    }, 
+    {
+        "found": [
+            {
+                "5": "1"
+            }, 
+            {
+                "10": "0"
+            }
+        ], 
+        "match": [
+            5, 
+            10
+        ], 
+        "name": "tests/douts/if_check_le3.dout", 
+        "no_match": []
+    }, 
+    {
+        "found": [
+            {
+                "4": "1"
+            }, 
+            {
+                "4": "1"
+            }, 
+            {
+                "5": "1"
+            }, 
+            {
+                "9": "0"
+            }
+        ], 
+        "match": [
+            4, 
+            5, 
+            9
+        ], 
+        "name": "tests/douts/if_check_lt.dout", 
+        "no_match": []
+    }, 
+    {
+        "found": [
+            {
+                "5": "1"
+            }, 
+            {
+                "5": "1"
+            }, 
+            {
+                "5": "1"
+            }, 
+            {
+                "6": "0"
+            }, 
+            {
+                "10": "1"
+            }
+        ], 
+        "match": [
+            5, 
+            6
+        ], 
+        "name": "tests/douts/if_check_lt2.dout", 
+        "no_match": [
+            10
+        ]
+    }, 
+    {
+        "found": [
+            {
+                "5": "1"
+            }, 
+            {
+                "6": "1"
+            }, 
+            {
+                "6": "1"
+            }, 
+            {
+                "11": "0"
+            }
+        ], 
+        "match": [
+            5, 
+            6, 
+            11
+        ], 
+        "name": "tests/douts/if_check_lt3.dout", 
+        "no_match": []
+    }, 
+    {
+        "found": [
+            {
+                "1": "0"
+            }
+        ], 
+        "match": [
+            1
+        ], 
+        "name": "tests/douts/if_inside_for.dout", 
+        "no_match": []
+    }, 
+    {
+        "found": [
+            {
+                "4": "1"
+            }, 
+            {
+                "4": "1"
+            }, 
+            {
+                "5": "1"
+            }, 
+            {
+                "6": "0"
+            }, 
+            {
+                "9": "1"
+            }
+        ], 
+        "match": [
+            4, 
+            5, 
+            6
+        ], 
+        "name": "tests/douts/if_nested.dout", 
+        "no_match": [
+            9
+        ]
+    }, 
+    {
+        "found": [
+            {
+                "26": "1"
+            }
+        ], 
+        "match": [
+            26
+        ], 
+        "name": "tests/douts/left_bit_shift.dout", 
+        "no_match": []
+    }, 
+    {
+        "found": [
+            {
+                "4": "1"
+            }, 
+            {
+                "5": "1"
+            }, 
+            {
+                "9": "0"
+            }
+        ], 
+        "match": [
+            4, 
+            5, 
+            9
+        ], 
+        "name": "tests/douts/logical_and.dout", 
+        "no_match": []
+    }, 
+    {
+        "found": [
+            {
+                "4": "1"
+            }, 
+            {
+                "5": "1"
+            }, 
+            {
+                "9": "0"
+            }
+        ], 
+        "match": [
+            4, 
+            5, 
+            9
+        ], 
+        "name": "tests/douts/logical_and_or.dout", 
+        "no_match": []
+    }, 
+    {
+        "found": [
+            {
+                "4": "1"
+            }, 
+            {
+                "5": "1"
+            }, 
+            {
+                "9": "0"
+            }
+        ], 
+        "match": [
+            4, 
+            5, 
+            9
+        ], 
+        "name": "tests/douts/logical_combined.dout", 
+        "no_match": []
+    }, 
+    {
+        "found": [
+            {
+                "4": "1"
+            }, 
+            {
+                "4": "1"
+            }, 
+            {
+                "5": "1"
+            }, 
+            {
+                "6": "0"
+            }, 
+            {
+                "9": "1"
+            }
+        ], 
+        "match": [
+            4, 
+            5, 
+            6
+        ], 
+        "name": "tests/douts/logical_not.dout", 
+        "no_match": [
+            9
+        ]
+    }, 
+    {
+        "found": [
+            {
+                "4": "1"
+            }, 
+            {
+                "5": "1"
+            }, 
+            {
+                "9": "0"
+            }
+        ], 
+        "match": [
+            4, 
+            5, 
+            9
+        ], 
+        "name": "tests/douts/logical_or.dout", 
+        "no_match": []
+    }, 
+    {
+        "found": [
+            {
+                "4": "1"
+            }, 
+            {
+                "5": "1"
+            }, 
+            {
+                "9": "0"
+            }
+        ], 
+        "match": [
+            4, 
+            5, 
+            9
+        ], 
+        "name": "tests/douts/logical_or_and.dout", 
+        "no_match": []
+    }, 
+    {
+        "found": [
+            {
+                "72": "1"
+            }, 
+            {
+                "43": "1"
+            }, 
+            {
+                "13": "1"
+            }
+        ], 
+        "match": [
+            72, 
+            43, 
+            13
+        ], 
+        "name": "tests/douts/multiple_variable_definition.dout", 
+        "no_match": []
+    }, 
+    {
+        "found": [
+            {
+                "52": "1"
+            }
+        ], 
+        "match": [
+            52
+        ], 
+        "name": "tests/douts/multiplication.dout", 
+        "no_match": []
+    }, 
+    {
+        "found": [
+            {
+                "1": "1"
+            }
+        ], 
+        "match": [
+            1
+        ], 
+        "name": "tests/douts/remainder.dout", 
+        "no_match": []
+    }, 
+    {
+        "found": [
+            {
+                "6": "1"
+            }
+        ], 
+        "match": [
+            6
+        ], 
+        "name": "tests/douts/right_bit_shift.dout", 
+        "no_match": []
+    }, 
+    {
+        "found": [
+            {
+                "6": "0"
+            }
+        ], 
+        "match": [
+            6
+        ], 
+        "name": "tests/douts/single_line_for.dout", 
+        "no_match": []
+    }, 
+    {
+        "found": [
+            {
+                "9": "1"
+            }
+        ], 
+        "match": [
+            9
+        ], 
+        "name": "tests/douts/substraction.dout", 
+        "no_match": []
+    }, 
+    {
+        "found": [
+            {
+                "17": "1"
+            }
+        ], 
+        "match": [
+            17
+        ], 
+        "name": "tests/douts/summation.dout", 
+        "no_match": []
+    }, 
+    {
+        "found": [
+            {
+                "72": "1"
+            }
+        ], 
+        "match": [
+            72
+        ], 
+        "name": "tests/douts/variable_definition.dout", 
+        "no_match": []
+    }, 
+    {
+        "found": [
+            {
+                "72": "1"
+            }, 
+            {
+                "43": "1"
+            }, 
+            {
+                "115": "1"
+            }
+        ], 
+        "match": [
+            72, 
+            43, 
+            115
+        ], 
+        "name": "tests/douts/variable_summation.dout", 
+        "no_match": []
+    }
+]
