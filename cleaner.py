@@ -57,6 +57,19 @@ def numarize_blocks(lines):
 
 def fix_branches(lines):
     new_lines = []
+    sack = None
+    for line in lines:
+        words = line.split()
+        inst = words[0]
+        if sack != None and is_block(line):
+            new_lines.append(sack)
+            sack = None
+        if inst == "bg" or inst == "bge" or inst == "bl" or inst == "ble" or inst == "be" or inst == "bne":
+            sack = line
+        else:
+            new_lines.append(line)
+    lines = new_lines
+    new_lines = []
     for line in lines:
         words = line.split()
         inst = words[0]
@@ -140,7 +153,7 @@ def delete_extra_lines(lines):
     new_lines = []
     for line in lines:
         inst = line.split()[0]
-        if re.match("^\t(-|\\\\)", line) == None and inst != "nop" and inst != "restore" and inst != "call" and inst != "savei":
+        if re.match("^\t(-|\\\\)", line) == None and inst != "nop" and inst != "ret" and inst != "restore" and inst != "call" and inst != "savei":
             new_lines.append(line)
     return new_lines
 
@@ -238,10 +251,10 @@ def main():
     lines = fix_instructions(lines)
     lines = fix_negatives(lines)
     lines = fix_branches(lines)
-    lines = fix_ret(lines)
+    #lines = fix_ret(lines)
     lines = numarize_blocks(lines)
     lines = refer_blocks(lines)
-    lines = num_ret(lines)
+    #lines = num_ret(lines)
     lines = numarize_lines(lines)
     lines = add_static_lines(lines)
     print_lines(lines)
