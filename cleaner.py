@@ -64,7 +64,7 @@ def fix_branches(lines):
         if sack != None and is_block(line):
             new_lines.append(sack)
             sack = None
-        if inst == "bg" or inst == "bge" or inst == "bl" or inst == "ble" or inst == "be" or inst == "bne":
+        if inst == "bg" or inst == "bge" or inst == "bl" or inst == "ble" or inst == "be" or inst == "bne" or inst == "BZJ" or inst == "BZJi":
             sack = line
         else:
             new_lines.append(line)
@@ -74,12 +74,12 @@ def fix_branches(lines):
         words = line.split()
         inst = words[0]
         if inst == "bg":
-            new_lines.append("NAND 16318 16318")
+            new_lines.append("LTi 16318 1")
             new_lines.append("BZJ " + words[1] + " 16318")
         elif inst == "bge":
             new_lines.append("BZJ " + words[1] + " 16317")
         elif inst == "bl":
-            new_lines.append("NAND 16317 16317")
+            new_lines.append("LTi 16317 1")
             new_lines.append("BZJ " + words[1] + " 16317")
         elif inst == "ble":
             new_lines.append("BZJ " + words[1] + " 16318")
@@ -88,7 +88,7 @@ def fix_branches(lines):
             new_lines.append("BZJ " + words[1] + " 16317")
         elif inst == "bne":
             new_lines.append("ADD 16317 16318")
-            new_lines.append("NAND 16317 16317")
+            new_lines.append("LTi 16317 1")
             new_lines.append("BZJ " + words[1] + " 16317")
         else:
             new_lines.append(line)

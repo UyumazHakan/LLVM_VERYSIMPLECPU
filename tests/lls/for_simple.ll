@@ -8,8 +8,8 @@ define i32 @main() #0 {
   %x = alloca i32, align 4
   %i = alloca i32, align 4
   store i32 0, i32* %1, align 4
-  store i32 0, i32* %x, align 4
-  store i32 0, i32* %i, align 4
+  store i32 2, i32* %x, align 4
+  store i32 1, i32* %i, align 4
   br label %2
 
 ; <label>:2                                       ; preds = %8, %0

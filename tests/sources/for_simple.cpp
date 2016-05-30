@@ -1,6 +1,6 @@
 int main() {
-	int x = 0;
-	for(int i=0; i<5;i++){
+	int x = 2;
+	for(int i=1; i<5;i++){
 		x++;
 	}
 }
