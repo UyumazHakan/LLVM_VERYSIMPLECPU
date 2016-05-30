@@ -36,6 +36,24 @@
         "no_match": []
     }, 
     {
+        "found": [], 
+        "match": [], 
+        "name": "tests/douts/class_definition.dout", 
+        "no_match": []
+    }, 
+    {
+        "found": [], 
+        "match": [], 
+        "name": "tests/douts/class_inheritance.dout", 
+        "no_match": []
+    }, 
+    {
+        "found": [], 
+        "match": [], 
+        "name": "tests/douts/class_static_variable.dout", 
+        "no_match": []
+    }, 
+    {
         "found": [
             {
                 "3": "1"
@@ -116,6 +134,42 @@
             1
         ], 
         "name": "tests/douts/for_with_more_than_one_line.dout", 
+        "no_match": []
+    }, 
+    {
+        "found": [
+            {
+                "3": "1"
+            }
+        ], 
+        "match": [
+            3
+        ], 
+        "name": "tests/douts/function_call.dout", 
+        "no_match": []
+    }, 
+    {
+        "found": [], 
+        "match": [], 
+        "name": "tests/douts/function_recursive_parameter.dout", 
+        "no_match": []
+    }, 
+    {
+        "found": [], 
+        "match": [], 
+        "name": "tests/douts/function_recursive_return.dout", 
+        "no_match": []
+    }, 
+    {
+        "found": [], 
+        "match": [], 
+        "name": "tests/douts/function_with_parameter.dout", 
+        "no_match": []
+    }, 
+    {
+        "found": [], 
+        "match": [], 
+        "name": "tests/douts/function_with_return_parameter.dout", 
         "no_match": []
     }, 
     {

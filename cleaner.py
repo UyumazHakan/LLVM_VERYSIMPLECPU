@@ -3,6 +3,7 @@ import re
 
 block_dict = {}
 ret_block = []
+fun_dict = {}
 
 def print_lines(lines):
     for line in lines:
@@ -36,18 +37,30 @@ def refer_blocks(lines):
             if is_block_ref(words[i]) and words[i] in block_dict:
                 words[i] = block_dict[words[i]]
         new_lines.append(" ".join(str(x) for x in words))
+    lines = new_lines
+    new_lines = []
+    for line in lines:
+        if line.split()[0] == "call":
+            new_lines.append("BZJi "+str(fun_dict[line.split()[1]])+" 0")
+        else:
+            new_lines.append(line)
     return new_lines
 
 
 
 def numarize_blocks(lines):
-    i = 0
+    i = 1
     new_lines = []
+    new_lines.append("BZJi 1 0")
     for line in lines:
         if is_block(line):
             i = i + 1
             new_lines.append("BZJi " + str(i) + " 0")
             block_dict[re.search("^(\\.|!)[^:]*", line).group(0)] = i
+            i = i + 1
+            new_lines.append(str(i))
+        elif line[0] == "@":
+            fun_dict[line[1:]] = i
             i = i + 1
             new_lines.append(str(i))
         else:
@@ -126,6 +139,8 @@ def fix_instructions(lines):
 
 def delete_extra_blocks(lines):
     new_lines = []
+    if(len(lines) == 0):
+        return lines
     previous_line = lines[0]
     for line in lines[1:]:
         if not is_block(previous_line) or not is_block(line):
@@ -153,7 +168,7 @@ def delete_extra_lines(lines):
     new_lines = []
     for line in lines:
         inst = line.split()[0]
-        if re.match("^\t(-|\\\\)", line) == None and inst != "nop" and inst != "ret" and inst != "restore" and inst != "call" and inst != "savei":
+        if re.match("^\t(-|\\\\)", line) == None and inst != "nop" and inst != "ret" and inst != "restore" and inst != "restorei"  and inst != "savei":
             new_lines.append(line)
     return new_lines
 
@@ -178,12 +193,14 @@ def skip_unneccessary_lines(lines):
 
 def skip_header(lines):
     new_lines = []
-    flag = False
+    flag = True
     for line in lines:
+        if line.find(".globl") != -1:
+            flag = False
         if flag:
             new_lines.append(line)
-        if not flag and line[0] == '0':
-            flag = True
+        if not flag and line.find(".cfi_register") !=-1:
+                flag = True
     return new_lines
 
 def fix_ret(lines):
@@ -236,12 +253,44 @@ def num_ret(lines):
                 lines[i] = " ".join(str(x) for x in words)
     return lines
 
+def organize_functions(lines):
+    new_lines = []
+    functions = {}
+    function_name = None
+    cur_function = []
+    flag = False
+    for line in lines:
+        if not flag and line.find(".globl") != -1:
+            function_name = line[8:]
+            flag = True
+        if flag:
+            if line.find(".Lfunc_end") !=-1:
+                flag = False
+                functions[function_name] = cur_function
+                cur_function = []
+            else:
+                cur_function.append(line)
+    for fun in functions.keys():
+        if fun.find("main") != -1:
+            new_lines.append("@"+fun)
+            for f in functions[fun]:
+                new_lines.append(f)
+    for fun in functions.keys():
+        if fun.find("main") == -1:
+            new_lines.append("@"+fun)
+            for f in functions[fun]:
+                new_lines.append(f)
+
+            
+
+    return new_lines
 
 
 def main():
     filename = sys.argv[1]
     file = open(filename).read()
     lines = file.splitlines()
+    lines = organize_functions(lines)
     lines = skip_header(lines)
     lines = delete_line_nums(lines)
     lines = skip_unneccessary_lines(lines)
