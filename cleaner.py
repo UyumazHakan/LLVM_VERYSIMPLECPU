@@ -2,6 +2,7 @@ import sys
 import re
 
 block_dict = {}
+ret_block = []
 
 def print_lines(lines):
     for line in lines:
@@ -16,7 +17,7 @@ def is_block_ref(word):
 def add_static_lines(lines):
     lines.append("16316: 4294967295")
     lines.append("16319: 0")
-    lines.append("16349: 16314")
+    lines.append("16349: 16313")
     return lines
 
 def numarize_lines(lines):
@@ -139,7 +140,7 @@ def delete_extra_lines(lines):
     new_lines = []
     for line in lines:
         inst = line.split()[0]
-        if re.match("^\t(-|\\\\)", line) == None and inst != "nop" and inst != "ret" and inst != "restore" and inst != "call" and inst != "savei":
+        if re.match("^\t(-|\\\\)", line) == None and inst != "nop" and inst != "restore" and inst != "call" and inst != "savei":
             new_lines.append(line)
     return new_lines
 
@@ -166,11 +167,62 @@ def skip_header(lines):
     new_lines = []
     flag = False
     for line in lines:
-        if not flag and line[0] == '0':
-            flag = True
         if flag:
             new_lines.append(line)
+        if not flag and line[0] == '0':
+            flag = True
     return new_lines
+
+def fix_ret(lines):
+    new_lines = []
+    last_block = None
+    for line in lines:
+        if is_block(line):
+            last_block = re.search("^(\\.|!)[^:]*", line).group(0)
+            if last_block[0] == "!":
+                last_block = last_block[0] +"_"+last_block[2:]
+        if line.split()[0] == "ret":
+            ret_block.append(last_block)
+            new_lines.append("BZJi "+last_block+"_ret 0 ")
+            new_lines.append("number"+last_block+"_ret")
+            new_lines.append("mumber"+last_block+"_ret")
+        else:
+            new_lines.append(line)
+    lines = new_lines
+    new_lines = []
+    for line in lines:
+        words = line.split()
+        match_word = None
+        for i in range(len(words)):
+            if is_block_ref(words[i]) and words[i] in ret_block:
+                new_lines.append("CPi "+words[i]+"_ret next")
+                match_word = words[i]
+        new_lines.append(line)
+        if match_word:
+            new_lines.append("CP "+str(match_word)+"_ret m"+str(match_word)+"_ret")
+    return new_lines
+
+def num_ret(lines):
+    new_lines = []
+    for i in range(len(lines)):
+        if lines[i].find("number") != -1:
+            for j in range(len(lines)):
+                words =lines[j].split()
+                for k in range(len(words)):
+                    if words[k] == (lines[i][6:]):
+                        words[k] = str(i)
+                    if words[k] == ("m"+lines[i][6:]):
+                        words[k] = str(i+1)
+                    lines[j] = " ".join(str(x) for x in words)
+            lines[i] = str(i-1)
+            lines[i+1] = str(i-1)
+        words =lines[i].split()
+        for k in range(len(words)):
+            if words[k] == ("next"):
+                words[k] = str(i+2)
+                lines[i] = " ".join(str(x) for x in words)
+    return lines
+
 
 
 def main():
@@ -186,8 +238,10 @@ def main():
     lines = fix_instructions(lines)
     lines = fix_negatives(lines)
     lines = fix_branches(lines)
+    lines = fix_ret(lines)
     lines = numarize_blocks(lines)
     lines = refer_blocks(lines)
+    lines = num_ret(lines)
     lines = numarize_lines(lines)
     lines = add_static_lines(lines)
     print_lines(lines)

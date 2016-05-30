@@ -267,11 +267,11 @@ multiclass F3_12<string OpcStr, bits<6> Op3Val, SDNode OpNode,
                  RegisterClass RC, ValueType Ty, Operand immOp> {
   def rr  : F3_1<2, Op3Val,
                  (outs RC:$rd), (ins RC:$rs1, RC:$rs2),
-                 !strconcat("CP $rd $rs1 ", !strconcat(OpcStr, " $rd $rs2")),
+                 !strconcat("CPI $rs1 $rs1 CPI $rs2 $rs2 CP $rd $rs1 ", !strconcat(OpcStr, " $rd $rs2")),
                  [(set Ty:$rd, (OpNode Ty:$rs1, Ty:$rs2))]>;
   def ri  : F3_2<2, Op3Val,
                  (outs RC:$rd), (ins RC:$rs1, immOp:$simm13),
-                 !strconcat("CP $rd $rs1 ", !strconcat(OpcStr, "i $rd $simm13")),
+                 !strconcat("CPI $rs1 $rs1 CP $rd $rs1 ", !strconcat(OpcStr, "i $rd $simm13")),
                  [(set Ty:$rd, (OpNode Ty:$rs1, (Ty simm13:$simm13)))]>;
 }
 
@@ -280,10 +280,10 @@ multiclass F3_12<string OpcStr, bits<6> Op3Val, SDNode OpNode,
 multiclass F3_12np<string OpcStr, bits<6> Op3Val> {
   def rr  : F3_1<2, Op3Val,
                  (outs IntRegs:$rd), (ins IntRegs:$rs1, IntRegs:$rs2),
-                 !strconcat("CP $rd $rs1 ", !strconcat(OpcStr, " $rd $rs2")), []>;
+                 !strconcat("CPI $rs1 $rs1 CPI $rs2 $rs2 CP $rd $rs1 ", !strconcat(OpcStr, " $rd $rs2")), []>;
   def ri  : F3_2<2, Op3Val,
                  (outs IntRegs:$rd), (ins IntRegs:$rs1, simm13Op:$simm13),
-                 !strconcat("CP $rd $rs1 ", !strconcat(OpcStr, "i $rd $simm13")), []>;
+                 !strconcat("CPI $rs1 $rs1 CP $rd $rs1 ", !strconcat(OpcStr, "i $rd $simm13")), []>;
 }
 
 // Load multiclass - Define both Reg+Reg/Reg+Imm patterns in one shot.

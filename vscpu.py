@@ -190,7 +190,7 @@ class CpuState(object):
                 self.pc_ = self.mem[arg0] + arg1
             #print "Jumped to new PC: " + str(self.pc_)
             if self.pc_ > MEMSIZE:
-                print "New PC is outside memory bounds. Exiting..."
+                print "New PC is outside memory bounds. Exiting..." + str(self.pc_)
                 quit()
 
         elif op_ == CPI:

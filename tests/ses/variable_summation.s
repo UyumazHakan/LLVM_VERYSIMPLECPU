@@ -7,7 +7,7 @@
 main:                                   ! @main
 	.cfi_startproc
 ! BB#0:
-0:	CP 16333 16333 savei 16333 -104
+0:	CPI 16333 16333 CP 16333 16333 savei 16333 -104
 .Ltmp0:
 	.cfi_def_cfa_register 16349
 .Ltmp1:
@@ -28,7 +28,7 @@ main:                                   ! @main
 12:	CPI 16383 16349
 13:	ADDi 16383 -8
 14:	CPIi 16383 16344
-15:	CPI 16344 16343 ADDi 16344 43
+15:	CPI 16343 16343 CP 16344 16343 ADDi 16344 43
 16:	CPi 16383 0 CP 16343 16383
 17:	\
 18:	CPI 16383 16349
